@@ -12,7 +12,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
- * @author User
+ * @author Jhon Edison Muñoz
  */
 public class CalculadoraJEM extends javax.swing.JFrame {
 
