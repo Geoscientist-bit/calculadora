@@ -455,6 +455,7 @@ public class CalculadoraJEM extends javax.swing.JFrame {
             operacion = "sumar";
             
             activado = false;
+            punto = true;
         }
     }//GEN-LAST:event_btnSumaActionPerformed
 
@@ -575,7 +576,8 @@ public class CalculadoraJEM extends javax.swing.JFrame {
             if (cadenaNumeros.equals("")) {
                 cadenaNumeros = "0.";
             }else{
-                cadenaNumeros = ".";
+                cadenaNumeros += ".";
+              
             }
             lbResultado.setText(cadenaNumeros);
             punto = false;
@@ -608,23 +610,24 @@ public class CalculadoraJEM extends javax.swing.JFrame {
 
     private void btnPrimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimoActionPerformed
         primerNumero = Double.parseDouble(cadenaNumeros);
-        //lbMostrarOperaciones.setText("sqrt("+cadenaNumeros+")");
+        int bandera = 0;
         if (primerNumero <= 1) {
             lbResultado.setText("No es primo");
-       }else if (primerNumero == 2){
-           lbResultado.setText("Es primo");
-            
-       }else if(primerNumero > 2){
+        } else if (primerNumero == 2) {
+            lbResultado.setText("Es primo");
+        } else if (primerNumero > 2) {
             for (int i = 2; i < primerNumero; i++) {
-                if(primerNumero % i == 0){
+                if (primerNumero % i == 0) {
                     lbResultado.setText("No es primo");
+                    bandera = 1;
                 }
             }
-                       
-       }
-        //resultado = Math.sqrt(primerNumero);
-        //lbResultado.setText(String.format("% .2f", resultado));
-        cadenaNumeros = "";              
+            if (bandera == 0) {
+                lbResultado.setText("Es primo");
+            }
+
+        }
+                    
     }//GEN-LAST:event_btnPrimoActionPerformed
 
     private void btnFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactorialActionPerformed
